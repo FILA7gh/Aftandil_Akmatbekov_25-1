@@ -1,21 +1,11 @@
 {% extends 'layouts/index.html' %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'products.css' %}">
+{% endblock %}
 
 {% block content %}
-    <style type="text/css">
-        .products {
-            display: flex;
-            justify-content: space-between;
-            width: 80%;
-            margin-left: 10%;
-            flex-wrap: wrap;
-        }
-        .products_block {
-            margin: 20px;
-        }
-        .product_image{
-            width: 100%
-        }
-    </style>
     <div class="products">
         {% for product in products %}
             <div class="products_block">
@@ -25,10 +15,12 @@
                         <h5 class="card-title">{{ product.title }}</h5>
                         <h6 class="card-title">quantity: {{ product.quantity }}</h6>
                         <h6 class="card-title">price: {{ product.price }}</h6>
-                        {%   for hashtag in product.hashtags %}
-                            <p>{{ hashtag.title }}</p>
-                        {% endfor %}
-                        <a href="#" class="card-link">More</a>
+                        <p>
+                            {% for hashtag in product.hashtags %}
+                                {{ hashtag.title }}
+                            {% endfor %}
+                        </p>
+                        <a href="/products/{{ product.id }}/" class="card-link">More</a>
                     </div>
                 </div>
             </div>
