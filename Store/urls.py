@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import path
-from Products.views import main_view, products_view, hashtags_view, product_detail_view
+from Products.views import main_view, products_view, hashtags_view, product_detail_view, create_product_view
 from django.conf.urls.static import static
 from Store.settings import MEDIA_ROOT, MEDIA_URL
 
@@ -11,6 +11,7 @@ urlpatterns = [
     path('products/', products_view),
     path('products/<int:id>/', product_detail_view),
     path('hashtags/', hashtags_view),
+    path('products/create/', create_product_view)
 
 ]
 
