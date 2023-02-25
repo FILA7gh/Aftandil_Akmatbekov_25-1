@@ -15,6 +15,8 @@ class Product(models.Model):
     quantity = models.IntegerField()
     price = models.FloatField(default=0.0)
     hashtags = models.ManyToManyField(Hashtag)
+    created_date = models.DateField(auto_now_add=True)
+    modified_date = models.DateField(auto_now=True)
 
     def __str__(self):
         return self.title

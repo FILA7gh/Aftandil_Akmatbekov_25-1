@@ -5,7 +5,7 @@ from .forms import ProductCreateForm, ReviewCreateForm
 
 def main_view(request):
     if request.method == 'GET':
-        return render(request, 'layouts/index.html')
+        return render(request, 'products/home.html')
 
 
 def products_view(request):
